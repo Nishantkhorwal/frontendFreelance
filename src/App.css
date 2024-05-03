@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Signika+Negative:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Signika+Negative:wght@300..700&display=swap');
+
+.font-cabin{
+  font-family: "Cabin", sans-serif;
+}
+.font-signika{
+  font-family: "Signika Negative", sans-serif;
+}
+.font-karlos{
+  font-family: "Karla", sans-serif;
+}
+.font-dancing{
+  font-family: "Dancing Script", cursive;
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+  width: 400px;
+  cursor: pointer;
+}
+
+.hover-text {
+  position: absolute;
+  top: 180px;
+  left: 22px;
+  font-weight:bolder;
+  font-size: 20px;
+  color: black;
+  /* background-color: rgb(255, 131, 255);  */
+  
+  background: transparent;
+  z-index: 2; /* Ensure the text appears above the image */
+  opacity: 0; /* Initially set opacity to 0 to hide the text */
+  pointer-events: none; /* Prevent text from blocking hover effect on image */
+  transition: transform 0.3s ease;
+  transform: translateX(0%) translateY(100%);
+ 
+  border-radius: 5px;
+  display: none;
+}
+
+
+.image-container:hover .hover-text  {
+  display: block;
+  opacity: 1;
+  transform: translateX(0%) translateY(10%);
+}
+
+.image-container::before,
+.image-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 0;
+  background-color: rgba(200, 160, 220, 0.7); /* Light purple color */
+  transition: height 0.3s ease; /* Apply transition for smooth effect */
+  z-index: 1;
+}
+
+.image-container::before {
+  left: 0;
+  transform-origin: bottom left;
+}
+
+.image-container::after {
+  right: 0;
+  transform-origin: bottom right;
+}
+
+.image-container:hover::before,
+.image-container:hover::after {
+  height: 40%; /* Increase the height to 100% on hover */
+}
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.spring {
+  animation: moveUpDown 2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite alternate;
+ 
+  opacity: 0.3;
+}  
+
+input:focus {
+  background-color: transparent;
+}
+
+/* Styling the WebKit sidebar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 30px; 
+  background-color: #f0f0f0;
+}
+
+
+::-webkit-scrollbar-track {
+  border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(85, 85, 255); 
+  border-radius: 5px; 
+}
