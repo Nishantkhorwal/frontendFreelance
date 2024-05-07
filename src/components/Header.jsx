@@ -23,7 +23,7 @@ useEffect(() => {
     setFix(false)
     }
   }
-    window.addEventListener("scroll", setFixed)
+   
   return (
     <>
     
@@ -49,7 +49,7 @@ useEffect(() => {
           <Link to='/' className={`block py-2 px-3 ${fix ? 'text-black':'text-white'} hover:text-blue-700 bg-blue-700 rounded md:bg-transparent  md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent`} aria-current="page">Home</Link>
         </li>
         <li>
-            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className={`flex items-center justify-between w-full py-2 px-3 ${fix ? 'text-black':'text-white'}  hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent`}>Services <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className={`flex items-center justify-between w-full py-2 px-3 ${fix ? 'text-black':'text-white'} bg-blue-700   md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent`}>Services <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
   </svg></button>
             <div id="dropdownNavbar" className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
@@ -59,13 +59,16 @@ useEffect(() => {
                   </li>
                  
                   <li>
+                    <Link to='/development' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Web Development</Link>
+                  </li>
+                  <li>
+                    <Link to='/graphicDesign' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Graphic Design</Link>
+                  </li>
+                  <li>
                     <Link to='/digitalMarketing' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Digital Marketing</Link>
                   </li>
                   <li>
-                    <Link to='/development' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Development</Link>
-                  </li>
-                  <li>
-                    <Link to='/creative' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Creative</Link>
+                    <Link to='/creative' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Others</Link>
                   </li>
                 </ul>
                 

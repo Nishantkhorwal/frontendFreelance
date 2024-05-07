@@ -30,7 +30,7 @@ function Contact() {
         e.preventDefault();
         try {
             setIsLoading(true);
-            const response = await fetch('http://localhost:3000/api/contact/post', {
+            const response = await fetch('https://backendfreelance-4.onrender.com/api/contact/post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -49,7 +49,7 @@ const handleChange = (e) => {
     }
     try {
         setIsLoading(true);
-        const response = await fetch('http://localhost:3000/api/quote/post', {
+        const response = await fetch('https://backendfreelance-4.onrender.com/api/quote/post', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

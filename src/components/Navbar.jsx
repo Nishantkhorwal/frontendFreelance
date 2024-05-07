@@ -21,6 +21,12 @@ function Navbar() {
     }
   }
     window.addEventListener("scroll", setFixed)
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDropdown = () => {
+      setIsOpen(prevState => !prevState);
+    };  
   return (
     <>
     
@@ -45,27 +51,59 @@ function Navbar() {
           <Link to="#" className="block py-2 px-3 text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0 lg:dark:text-blue-500 dark:bg-blue-600 lg:dark:bg-transparent" aria-current="page">Home</Link>
         </li>
         <li>
-            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-white lg:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 lg:dark:hover:bg-transparent">Services <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-  </svg></button>
-            <div id="dropdownNavbar" className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
+      <button
+        id="dropdownNavbarLink"
+        onClick={toggleDropdown}
+        className={`flex items-center relative justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-white lg:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 lg:dark:hover:bg-transparent ${
+          isOpen ? 'open' : ''
+        }`}
+       
+      >
+        Services{' '}
+        <svg
+          className={`w-2.5 h-2.5 ms-2.5 ${isOpen ? 'rotate-180' : ''}`}
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 10 6"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="m1 1 4 4 4-4"
+          />
+        </svg>
+      </button>
+      <div
+        id="dropdownNavbar"
+        className={`absolute z-10 ${
+          isOpen ? 'block' : 'hidden'
+        } font-normal bg-white divide-y  lg:top-[74%] lg:right-[37%] top-[60%] right-[10%]  divide-gray-100 rounded-lg  shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}
+        /* Adjust top and right values as needed */
+      
+      >
+          <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
                   <li>
-                    <Link to='/webdesign' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Web Designing</Link>
+                    <Link to="/webdesign" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Web Designing</Link>
+                  </li>
+                 
+                  <li>
+                    <Link to='/development' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Web Development</Link>
+                  </li>
+                  <li>
+                    <Link to='/graphicDesign' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Graphic Design</Link>
                   </li>
                   <li>
                     <Link to='/digitalMarketing' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Digital Marketing</Link>
                   </li>
                   <li>
-                    <Link to='/development' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Development</Link>
+                    <Link to='/creative' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Others</Link>
                   </li>
-                  <li>
-                    <Link to='/creative' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Creative</Link>
-                  </li>
-                  
                 </ul>
-            </div>
-        </li>
+      </div>
+    </li>
         <li>
           <Link to='/about' className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">About Us</Link>
         </li>
